@@ -1,0 +1,11 @@
+<div id="app"></div>
+<script type="module">
+  import { createApp } from "vue";
+
+  import App from "./src/App2.vue";
+
+  let app = createApp(App).mount("#app");
+
+  // After you create app
+  window.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app.constructor;
+</script>
