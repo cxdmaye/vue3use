@@ -54,8 +54,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 h1 {
   color: #4fc08d;
+}
+.flex {
+  display: flex;
 }
 </style>
