@@ -19,10 +19,15 @@ export default {
       type: Array,
       default: [],
     },
+    currenttab: {
+      type: String,
+      default: "",
+    },
   },
   setup(props, { emit }) {
     let { tablist } = props;
-    let currenttab = ref(tablist[0]);
+    let currenttab = ref(props.currenttab || tablist[0]);
+    console.log(props.currenttab);
     const SwitchTab = (tab) => {
       currenttab.value = tab;
       emit("change", tab);

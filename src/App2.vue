@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <Tab :tablist="tablist" @change="SwitchTab" />
+    <Tab :tablist="tablist" @change="SwitchTab" :currenttab="currenttab" />
     <div>
       <component :is="currenttab" />
     </div>
@@ -18,6 +18,7 @@ import Cut from "/@view/cut/Cut.vue";
 import Code from "/@view/code/Code.vue";
 import Click from "/@view/click/Click.vue";
 import Tab from "/@/components/Tab.vue";
+import Animate from "/@view/animate/Animate.vue";
 export default {
   components: {
     SvgDrawer,
@@ -25,6 +26,7 @@ export default {
     Code,
     Click,
     Tab,
+    Animate,
     Parent,
   },
   data: () => {
@@ -36,16 +38,20 @@ export default {
     console.log(this.$refs);
   },
   setup(props) {
-    const tablist = ["code", "cut", "svgDrawer", "parent", "click"];
-    let currenttab = ref(tablist[0]);
+    const tablist = ["code", "cut", "svgDrawer", "parent", "click", "animate"];
+    let page = document.location.hash || "#code";
+    page = page.replace("#", "");
+    let currenttab = ref(page || tablist[0]);
+    console.log("app", page);
 
     const SwitchTab = (tab: string) => {
       currenttab.value = tab;
+      document.location.hash = tab;
+      console.log(tab);
     };
+
     return {
-      onMounted: onMounted(() => {
-        console.log(123);
-      }),
+      onMounted: onMounted(() => {}),
       SwitchTab,
       tablist,
       currenttab,
