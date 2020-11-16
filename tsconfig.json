@@ -3,8 +3,10 @@
         "esModuleInterop": true,
         "baseUrl": ".",
         "paths": {
-            "/@/*": ["src/*"],
-            "/@view":["src/view"]
+            // "/@/*": ["src/*"],
+            // "/@view":["src/view"]
+            "@/*": ["src/*"],
+            "@view":["src/view"]
         }
     },
      "include": ["./src/**/*.ts","./src/**/*.vue"]

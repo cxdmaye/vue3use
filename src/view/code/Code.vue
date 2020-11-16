@@ -86,7 +86,7 @@
 const ColorREG = /[rR][gG][Bb][Aa]?[\(]((2[0-4][0-9]|25[0-5]|[01]?[0-9][0-9]?),){2}(2[0-4][0-9]|25[0-5]|[01]?[0-9][0-9]?),?(0\.\d{1,2}|1|0)?[\)]{1}|#[0-9a-fA-F]{3,6}/;
 
 import { computed, onMounted, reactive, ref } from "vue";
-import Stringdiff, { Diffs } from "/@/Services/Diff";
+import Stringdiff, { Diffs } from "@/Services/Diff";
 export default {
   data() {
     return {};

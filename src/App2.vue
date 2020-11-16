@@ -2,8 +2,12 @@
 <template>
   <div>
     <Tab :tablist="tablist" @change="SwitchTab" :currenttab="currenttab" />
-    <div>
+    <!-- <div>
       <component :is="currenttab" />
+    </div> -->
+    <Code />
+    <div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -12,22 +16,23 @@
 // component 的 v-model有问题
 
 import { onMounted, ref, Ref } from "vue";
-import SvgDrawer from "/@/components/SvgDrawer.vue";
-import Parent from "/@view/props/Parent.vue";
-import Cut from "/@view/cut/Cut.vue";
-import Code from "/@view/code/Code.vue";
-import Click from "/@view/click/Click.vue";
-import Tab from "/@/components/Tab.vue";
-import Animate from "/@view/animate/Animate.vue";
+// import SvgDrawer from "@/components/SvgDrawer.vue";
+// import Parent from "@view/props/Parent.vue";
+// import Cut from "@view/cut/Cut.vue";
+import Code from "@/view/code/Code.vue";
+// import Click from "/@view/click/Click.vue";
+// import Tab from "/@/components/Tab.vue";
+// import Animate from "/@view/animate/Animate.vue";
+
 export default {
   components: {
-    SvgDrawer,
-    Cut,
+    // SvgDrawer,
+    // Cut,
     Code,
-    Click,
-    Tab,
-    Animate,
-    Parent,
+    // Click,
+    // Tab,
+    // Animate,
+    // Parent,
   },
   data: () => {
     return {
@@ -38,24 +43,22 @@ export default {
     console.log(this.$refs);
   },
   setup(props) {
-    const tablist = ["code", "cut", "svgDrawer", "parent", "click", "animate"];
-    let page = document.location.hash || "#code";
-    page = page.replace("#", "");
-    let currenttab = ref(page || tablist[0]);
-    console.log("app", page);
-
-    const SwitchTab = (tab: string) => {
-      currenttab.value = tab;
-      document.location.hash = tab;
-      console.log(tab);
-    };
-
-    return {
-      onMounted: onMounted(() => {}),
-      SwitchTab,
-      tablist,
-      currenttab,
-    };
+    // const tablist = ["code", "cut", "svgDrawer", "parent", "click", "animate"];
+    // // let page = document.location.hash || "#code";
+    // // page = page.replace("#", "");
+    // let currenttab = ref(page || tablist[0]);
+    // // console.log("app", page);
+    // const SwitchTab = (tab: string) => {
+    //   currenttab.value = tab;
+    //   document.location.hash = tab;
+    //   console.log(tab);
+    // };
+    // return {
+    //   onMounted: onMounted(() => {}),
+    //   SwitchTab,
+    //   tablist,
+    //   currenttab,
+    // };
   },
 };
 </script>
